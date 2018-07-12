@@ -35,4 +35,4 @@
   </tr>
 <?php } ?>
 </table>
-<a href="index.php?p=d_administrasi&k=a_jabatan_tools&idjab=<?php echo $id_jabatan; ?>&aksi=tambah" class="btn btn-default"><i class="fa fa-fw fa-plus" style="color:#000"></i>Tambah</a>
+<a href="index.php?p=d_administrasi&k=a_jabatan_tools&aksi=tambah" class="btn btn-default"><i class="fa fa-fw fa-plus" style="color:#000"></i>Tambah</a>

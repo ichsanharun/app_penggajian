@@ -1,11 +1,12 @@
 <?php
 
-include ('koneksi/koneksi.php');
+include ('../koneksi/koneksi.php');
 
 $id = $_POST['userid'];
 $password = $_POST['password'];
 
-  $query = mysqli_query($mysqli, "SELECT * FROM karyawan WHERE id_karyawan = '$id' AND password_karyawan='$password'");
+  $query = mysqli_query($mysqli, "SELECT * FROM admin WHERE id_admin = '$id' AND password_admin='$password'");
+
 
 $ceklogin=mysqli_num_rows($query);
 if ($ceklogin == 0) {
@@ -18,11 +19,13 @@ if ($ceklogin == 0) {
 }
 else{
   $row = $query->fetch_array();
+
     session_start();
-    $_SESSION['id'] = $row['id_karyawan'];
-    $_SESSION['nama']= $row['nama_karyawan'];
-    $_SESSION['hak'] = "karyawan";
-    header('location:karyawan/index.php');
+    $_SESSION['id'] = $row['id_admin'];
+    $_SESSION['nama']= $row['nama_admin'];
+    $_SESSION['hak'] = "admin";
+    header('location:index.php');
+
 }
 
 

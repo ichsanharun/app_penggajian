@@ -32,7 +32,7 @@ else {
         <ul class="left-nav">
           <!--a href="?p=beranda"><li><i class="fa fa-fw fa-home"></i></li></a>
           <a href="?p=t_servis"><li>Absensi</li></a-->
-          <a href="?p=login" style="margin-left:7%"><li><i class="fa fa-fw fa-sign-in-alt"></i> Masuk</li></a>
+          <!--a href="?p=login" style="margin-left:7%"><li><i class="fa fa-fw fa-sign-in-alt"></i> Masuk</li></a>
 
           <!--a href="?p=login"><li class="right-nav">Masuk</li></a-->
         </ul>
@@ -40,18 +40,24 @@ else {
 
       <div class="apps-body">
         <?php
-          if (!empty($_GET['p'])) {
-            $p = $_GET['p'];
-            if (file_exists("konten/$p.php")) {
-              include 'konten/'.$p.'.php';
+          if (!isset($_SESSION['id'])) {
+            include 'konten/login.php';
+          }
+          else {
+            if (!empty($_GET['p'])) {
+              $p = $_GET['p'];
+              if (file_exists("konten/$p.php")) {
+                include 'konten/'.$p.'.php';
+              }
+              else {
+                include 'not_found.php';
+              }
             }
-            else {
-              include 'not_found.php';
+            elseif (empty($_GET['p'])) {
+              include 'konten/beranda.php';
             }
           }
-          elseif (empty($_GET['p'])) {
-            include 'konten/beranda.php';
-          }
+
          ?>
 
       </div>

@@ -42,13 +42,13 @@ if ($aksi == 'edit') {
                <tr>
                    <th width="19%">Tunjangan BPJS</th>
                    <td width="5%">:</td>
-                   <td><input type="number" name="tunjangan_konsumsi" value="<?php echo $tunjangan_bpjs; ?>"></td>
+                   <td><input type="number" name="tunjangan_bpjs" value="<?php echo $tunjangan_bpjs; ?>"></td>
                </tr>
 
                <tr>
                    <th width="19%">Tunjangan Konsumsi</th>
                    <td width="5%">:</td>
-                   <td><input type="number" name="tunjangan_transport" value="<?php echo $tunjangan_transport; ?>"></td>
+                   <td><input type="number" name="tunjangan_konsumsi" value="<?php echo $tunjangan_konsumsi; ?>"></td>
                </tr>
 
                <tr>
@@ -75,7 +75,7 @@ if ($aksi == 'edit') {
 }
 elseif ($aksi == 'tambah') {
   ?>
-    <form action="konten/proses/d_karyawan_edit_aksi.php" method="post">
+    <form action="konten/proses/a_jabatan_edit_aksi.php" method="post">
       <input type="hidden" name="tipe_edit" value="tambah">
       <table id="tbl">
         <tr>
@@ -99,13 +99,13 @@ elseif ($aksi == 'tambah') {
         <tr>
             <th width="19%">Tunjangan BPJS</th>
             <td width="5%">:</td>
-            <td><input type="number" name="tunjangan_konsumsi" value=""></td>
+            <td><input type="number" name="tunjangan_bpjs" value=""></td>
         </tr>
 
         <tr>
             <th width="19%">Tunjangan Konsumsi</th>
             <td width="5%">:</td>
-            <td><input type="number" name="tunjangan_transport" value=""></td>
+            <td><input type="number" name="tunjangan_konsumsi" value=""></td>
         </tr>
 
         <tr>
@@ -127,7 +127,7 @@ elseif ($aksi == 'tambah') {
   <?php
 }
 elseif ($aksi == 'hapus') {
-  $sqlhapus = "DELETE FROM jabatan WHERE id_jabatan='$id'";
+  $sqlhapus = "DELETE FROM jabatan WHERE id_jabatan='$_GET[idjab]'";
   if ($mysqli->query($sqlhapus)) {
     ?>
       <script>

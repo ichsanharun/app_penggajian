@@ -13,7 +13,7 @@ foreach ($gaji as $key => $value) {
   $tunjangan_keluarga = 0;
   $potongan_gaji = 0;
   extract($value);
-  echo $tunjangan_konsumsi;
+  
   if ($potongan_gaji == '') {
     $potongan_gaji = 0;
   }

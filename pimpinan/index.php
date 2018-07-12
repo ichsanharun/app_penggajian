@@ -32,29 +32,46 @@ else {
       </div>
 
         <ul class="left-nav">
-          <a href="?p=beranda"><li><i class="fa fa-fw fa-home"></i></li></a>
-          <a href="?p=d_karyawan"><li><i class="fa fa-fw fa-user"></i> Data Karyawan</li></a>
-          <a href="?p=d_admin"><li><i class="fa fa-fw fa-user"></i> Data Admin</li></a>
-          <a href="?p=d_administrasi"><li><i class="fa fa-fw fa-edit"></i> Administrasi</li></a>
+          <?php
+            if (isset($_SESSION['id'])) {
+              ?>
+              <a href="?p=beranda"><li><i class="fa fa-fw fa-home"></i></li></a>
+              <a href="?p=d_karyawan"><li><i class="fa fa-fw fa-user"></i> Data Karyawan</li></a>
+              <a href="?p=d_admin"><li><i class="fa fa-fw fa-user"></i> Data Admin</li></a>
+              <a href="?p=d_administrasi"><li><i class="fa fa-fw fa-edit"></i> Administrasi</li></a>
 
-          <a href="logout.php"><li class="right-nav"><i class="fa fa-fw fa-sign-out-alt"></i> Keluar</li></a>
+              <a href="logout.php"><li class="right-nav"><i class="fa fa-fw fa-sign-out-alt"></i> Keluar</li></a>
+              <?php
+            }
+            else {
+
+            }
+
+          ?>
+
         </ul>
       <div class="apps-content">
 
       <div class="apps-body">
         <?php
-          if (!empty($_GET['p'])) {
-            $p = $_GET['p'];
-            if (file_exists("konten/$p.php")) {
-              include 'konten/'.$p.'.php';
+          if (!isset($_SESSION['id'])) {
+            include 'konten/login.php';
+          }
+          else {
+            if (!empty($_GET['p'])) {
+              $p = $_GET['p'];
+              if (file_exists("konten/$p.php")) {
+                include 'konten/'.$p.'.php';
+              }
+              else {
+                include 'not_found.php';
+              }
             }
-            else {
-              include 'not_found.php';
+            elseif (empty($_GET['p'])) {
+              include 'konten/beranda.php';
             }
           }
-          elseif (empty($_GET['p'])) {
-            include 'konten/beranda.php';
-          }
+
          ?>
 
       </div>

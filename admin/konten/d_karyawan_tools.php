@@ -62,6 +62,12 @@ if ($aksi == 'detail') {
                <td><?php echo $jk_karyawan; ?></td>
            </tr>
 
+           <tr>
+               <th width="19%">Foto</th>
+               <td width="5%">:</td>
+               <td><img src="img/karyawan/<?php echo $foto_karyawan; ?>" width="30%"></td>
+           </tr>
+
            <?php
          }
           ?>
@@ -71,7 +77,7 @@ if ($aksi == 'detail') {
 }
 elseif ($aksi == 'edit') {
   ?>
-    <form action="konten/proses/d_karyawan_edit_aksi.php" method="post">
+    <form action="konten/proses/d_karyawan_edit_aksi.php" method="post" enctype="multipart/form-data">
       <input type="hidden" name="tipe_edit" value="edit">
       <table id="tbl">
         <?php
@@ -127,12 +133,18 @@ elseif ($aksi == 'edit') {
                </tr>
 
                <tr>
+                   <th width="19%">Foto</th>
+                   <td width="5%">:</td>
+                   <td><input type="file" name="foto_karyawan"></td>
+               </tr>
+
+               <tr>
                    <th width="19%">Jabatan</th>
                    <td width="5%">:</td>
                    <td>
                      <select name="id_jabatan">
                        <option value=""></option>
-                       <?php 
+                       <?php
                        $id_jabatan_new = $id_jabatan;
                        foreach ($sql_jabatan as $key) {
                          extract($key);
@@ -155,7 +167,7 @@ elseif ($aksi == 'edit') {
 }
 elseif ($aksi == 'tambah') {
   ?>
-    <form action="konten/proses/d_karyawan_edit_aksi.php" method="post">
+    <form action="konten/proses/d_karyawan_edit_aksi.php" method="post" enctype="multipart/form-data">
       <input type="hidden" name="tipe_edit" value="tambah">
       <table id="tbl">
 
@@ -180,7 +192,7 @@ elseif ($aksi == 'tambah') {
                <tr>
                    <th width="19%">Tempat, Tanggal Lahir</th>
                    <td width="5%">:</td>
-                   <td><input type="text" name="tempat_lahir_karyawan" value="" style="width:20% !important;"><input type="date" name="tanggal_lahir_karyawan" value="<?php echo $tanggal_lahir_karyawan; ?>" style="width:20% !important;"></td>
+                   <td><input type="text" name="tempat_lahir_karyawan" value="" style="width:20% !important;"><input type="date" name="tanggal_lahir_karyawan" value="" style="width:20% !important;"></td>
                </tr>
 
                <tr>
@@ -205,6 +217,12 @@ elseif ($aksi == 'tambah') {
                        <option value="P">Perempuan</option>
                      </select>
                    </td>
+               </tr>
+
+               <tr>
+                   <th width="19%">Foto Karyawan</th>
+                   <td width="5%">:</td>
+                   <td><input type="file" name="foto_karyawan"></td>
                </tr>
 
                <tr>
