@@ -38,6 +38,7 @@ else {
               <a href="?p=beranda"><li><i class="fa fa-fw fa-home"></i></li></a>
               <a href="?p=d_karyawan"><li><i class="fa fa-fw fa-user"></i> Data Karyawan</li></a>
               <a href="?p=d_admin"><li><i class="fa fa-fw fa-user"></i> Data Admin</li></a>
+              <a href="?p=d_pimpinan"><li><i class="fa fa-fw fa-user"></i> Data Pimpinan</li></a>
               <a href="?p=d_administrasi"><li><i class="fa fa-fw fa-edit"></i> Administrasi</li></a>
 
               <a href="logout.php"><li class="right-nav"><i class="fa fa-fw fa-sign-out-alt"></i> Keluar</li></a>
