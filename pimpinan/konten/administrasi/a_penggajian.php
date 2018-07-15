@@ -63,7 +63,7 @@ else {
   <tr text-align="center">
     <td><?php echo $no; ?></td>
     <td><?php echo $id_karyawan; ?></td>
-    <td><?php echo $id_karyawan; ?></td>
+    <td><?php echo $nama_karyawan; ?></td>
     <td><?php echo $id_jabatan; ?></td>
     <td><?php echo $gaji_pokok; ?></td>
     <td><?php echo $tunjangan_bpjs; ?></td>

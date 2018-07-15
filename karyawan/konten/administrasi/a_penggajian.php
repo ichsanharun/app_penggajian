@@ -39,7 +39,9 @@
     <td><?php echo $gaji_diterima; ?></td>
     <td>
       <?php if ($keterangan == 'Disetujui') {
-        echo "Telah Disetujui";
+        ?>
+        <a href="konten/administrasi/cetak.php?data=slip&periode=<?php echo $periode; ?>" class="fa fa-fw fa-print" title="Cetak Laporan"></a>
+        <?php
       }else {
         echo "Pending";
       } ?>

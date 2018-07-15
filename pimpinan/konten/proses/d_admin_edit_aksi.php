@@ -42,7 +42,7 @@ if (
       <?php
     }
     elseif ($tipe_edit == 'tambah') {
-      $queryinsert_admin = "INSERT INTO karyawan
+      $queryinsert_admin = "INSERT INTO admin
       (
         id_admin,
         nama_admin,
