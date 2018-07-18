@@ -3,16 +3,16 @@
 
 $aksi = $_GET['aksi'];
 $hak = $_SESSION['hak'];
-$year = date("Ymd");
-$code_year = substr($year, 2, 6);
+$year = date("Ym");
+$code_year = substr($year, 2, 4);
 $char = "01".$code_year;
 $query = "SELECT max(id_karyawan) as maxKode FROM karyawan WHERE id_karyawan like '%$char%'";
 $hasil = $mysqli->query($query);
 $data  = mysqli_fetch_array($hasil);
 $kodeTrans = $data['maxKode'];
-$noUrut = (int) substr($kodeTrans, 8, 3);
+$noUrut = (int) substr($kodeTrans, 6, 4);
 $noUrut++;
-$id_kr = $char . sprintf("%03s", $noUrut);
+$id_kr = $char . sprintf("%04s", $noUrut);
 
 
 if ($aksi == 'detail') {

@@ -22,6 +22,16 @@ if (
   !empty($alamat_karyawan) AND
   !empty($jk_karyawan)
 ) {
+  $ekstensi_diperbolehkan	= array('png','jpg');
+  $nama = $_FILES['foto_karyawan']['name'];
+  $x = explode('.', $nama);
+  $ekstensi = strtolower(end($x));
+  $ukuran	= $_FILES['foto_karyawan']['size'];
+  $file_tmp = $_FILES['foto_karyawan']['tmp_name'];
+  if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
+    if($ukuran < 1044070){
+      move_uploaded_file($file_tmp, '../../img/karyawan/'.$nama);
+
     if ($password_karyawan == $konfirmasi_password_karyawan) {
 
       $queryupdate_karyawan = "UPDATE karyawan SET
@@ -51,6 +61,24 @@ if (
         </script>
       <?php
     }
+  }
+  else{
+    ?>
+      <script>
+        alert('UKURAN FILE TERLALU BESAR!');
+        window.location.href="../../index.php?p=d_karyawan";
+      </script>
+    <?php
+  }
+}
+else{
+  ?>
+    <script>
+      alert('EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN!');
+      window.location.href="../../index.php?p=d_karyawan";
+    </script>
+  <?php
+}
 
 }
 else {

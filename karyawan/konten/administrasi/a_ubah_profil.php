@@ -1,4 +1,4 @@
-<form action="konten/proses/a_ubah_profil_aksi.php" method="post">
+<form action="konten/proses/a_ubah_profil_aksi.php" method="post" enctype="multipart/form-data">
 
   <table id="tbl">
     <?php
@@ -14,7 +14,7 @@
            <tr>
                <th width="19%">Nama Karyawan</th>
                <td width="5%">:</td>
-               <td><input type="text" name="nama_karyawan" value="<?php echo $nama_karyawan; ?>"></td>
+               <td><input type="text" name="nama_karyawan" value="<?php echo $nama_karyawan; ?>" readonly></td>
            </tr>
 
            <tr>
@@ -26,7 +26,7 @@
            <tr>
                <th width="19%">Tempat, Tanggal Lahir</th>
                <td width="5%">:</td>
-               <td><input type="text" name="tempat_lahir_karyawan" value="<?php echo $tempat_lahir_karyawan; ?>"><input type="date" name="tanggal_lahir_karyawan" value="<?php echo $tanggal_lahir_karyawan; ?>"></td>
+               <td><input type="text" name="tempat_lahir_karyawan" value="<?php echo $tempat_lahir_karyawan; ?>" readonly><input type="date" name="tanggal_lahir_karyawan" value="<?php echo $tanggal_lahir_karyawan; ?>" readonly></td>
            </tr>
 
            <tr>
@@ -62,6 +62,11 @@
                <th width="19%">Konfirmasi Password</th>
                <td width="5%">:</td>
                <td><input type="password" name="konfirmasi_password_karyawan" value=""></td>
+           </tr>
+           <tr>
+               <th width="19%">Foto Karyawan</th>
+               <td width="5%">:</td>
+               <td><input type="file" name="foto_karyawan"></td>
            </tr>
 
            <?php

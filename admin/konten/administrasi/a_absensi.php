@@ -71,7 +71,7 @@ $jumlahhari = $penanggalan[$bulan];
       ?>
 
       <tr>
-        <th><?php echo $nama_karyawan; ?></th>
+        <th><a href="?p=d_administrasi&k=a_absensi_tools&id=<?php echo $id_karyawan; ?>&periode=<?php echo date("Y-m"); ?>" ><?php echo $nama_karyawan; ?></a></th>
           <?php $tanggal1 = date("Y-m-d"); ?>
           <?php for ($i=1; $i <= $jumlahhari; $i++) {
             if ($i <10 ) {

@@ -13,7 +13,7 @@ foreach ($gaji as $key => $value) {
   $tunjangan_keluarga = 0;
   $potongan_gaji = 0;
   extract($value);
-  
+
   if ($potongan_gaji == '') {
     $potongan_gaji = 0;
   }
@@ -23,7 +23,7 @@ foreach ($gaji as $key => $value) {
     $karyawan = $sql_karyawan->fetch_array();
     //extract($karyawan);
     //print_r($value);
-    $gaji_diterima = ($gaji_pokok*90/100) + $tunjangan_bpjs + $tunjangan_keluarga + $tunjangan_konsumsi + $tunjangan_transport - $potongan_gaji;
+    $gaji_diterima = ($gaji_pokok*90/100) - $tunjangan_bpjs + $tunjangan_keluarga + $tunjangan_konsumsi + $tunjangan_transport - $potongan_gaji;
     $querygaji = "INSERT INTO slip_gaji
                   (
                     id_karyawan,
@@ -60,7 +60,7 @@ foreach ($gaji as $key => $value) {
 
   }
   elseif ($tipe_aksi == "Update") {
-    $gaji_diterima = ($gaji_pokok*90/100) + $tunjangan_bpjs + $tunjangan_keluarga + $tunjangan_konsumsi + $tunjangan_transport - $potongan_gaji;
+    $gaji_diterima = ($gaji_pokok*90/100) - $tunjangan_bpjs + $tunjangan_keluarga + $tunjangan_konsumsi + $tunjangan_transport - $potongan_gaji;
     $querygaji = "UPDATE slip_gaji SET
                     id_karyawan = '$key',
                     periode = '$periode',

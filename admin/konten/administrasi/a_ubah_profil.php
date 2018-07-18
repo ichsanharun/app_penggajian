@@ -2,7 +2,7 @@
   <input type="hidden" name="tipe_edit" value="edit">
   <table id="tbl">
     <?php
-    foreach ($sql_admin as $key) {
+    foreach ($sql_admin_id as $key) {
       extract($key);
       ?>
            <tr>
@@ -14,7 +14,7 @@
            <tr>
                <th width="19%">Nama Admin</th>
                <td width="5%">:</td>
-               <td><input type="text" name="nama_admin" value="<?php echo $nama_admin; ?>"></td>
+               <td><input type="text" name="nama_admin" value="<?php echo $nama_admin; ?>" readonly></td>
            </tr>
 
            <tr>
@@ -26,7 +26,7 @@
            <tr>
                <th width="19%">Tempat, Tanggal Lahir</th>
                <td width="5%">:</td>
-               <td><input type="text" name="tempat_lahir_admin" value="<?php echo $tempat_lahir_admin; ?>"><input type="date" name="tanggal_lahir_admin" value="<?php echo $tanggal_lahir_admin; ?>"></td>
+               <td><input type="text" name="tempat_lahir_admin" value="<?php echo $tempat_lahir_admin; ?>" readonly><input type="date" name="tanggal_lahir_admin" value="<?php echo $tanggal_lahir_admin; ?>" readonly></td>
            </tr>
 
            <tr>

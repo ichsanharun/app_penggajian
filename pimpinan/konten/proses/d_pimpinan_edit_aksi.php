@@ -21,6 +21,15 @@ if (
   !empty($alamat_pimpinan) AND
   !empty($jk_pimpinan)
 ) {
+  $ekstensi_diperbolehkan	= array('png','jpg');
+  $nama = $_FILES['foto_karyawan']['name'];
+  $x = explode('.', $nama);
+  $ekstensi = strtolower(end($x));
+  $ukuran	= $_FILES['foto_karyawan']['size'];
+  $file_tmp = $_FILES['foto_karyawan']['tmp_name'];
+  if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
+    if($ukuran < 1044070){
+      move_uploaded_file($file_tmp, '../../img/karyawan/'.$nama);
     if ($tipe_edit == 'edit') {
 
       $queryupdate_pimpinan = "UPDATE pimpinan SET
@@ -50,7 +59,8 @@ if (
         agama_pimpinan,
         alamat_pimpinan,
         password_pimpinan,
-        jk_pimpinan
+        jk_pimpinan,
+        foto_pimpinan
       )
       VALUES
       (
@@ -62,7 +72,8 @@ if (
         '$agama_pimpinan',
         '$alamat_pimpinan',
         '$tanggal_lahir_pimpinan',
-        '$jk_pimpinan'
+        '$jk_pimpinan',
+        '$nama'
       )
       ";
       $sqlinsert_pimpinan = mysqli_query($mysqli,$queryinsert_pimpinan);
@@ -73,6 +84,24 @@ if (
         </script>
       <?php
     }
+  }
+  else{
+    ?>
+      <script>
+        alert('UKURAN FILE TERLALU BESAR!');
+        window.location.href="../../index.php?p=d_karyawan";
+      </script>
+    <?php
+  }
+}
+else{
+  ?>
+    <script>
+      alert('EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN!');
+      window.location.href="../../index.php?p=d_karyawan";
+    </script>
+  <?php
+}
 
 }
 else {

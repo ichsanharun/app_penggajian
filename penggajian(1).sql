@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 12 Jul 2018 pada 16.58
+-- Generation Time: 19 Jul 2018 pada 03.20
 -- Versi Server: 10.1.24-MariaDB
 -- PHP Version: 7.0.20
 
@@ -43,32 +43,9 @@ CREATE TABLE `absensi` (
 --
 
 INSERT INTO `absensi` (`id`, `id_karyawan`, `tanggal_absensi`, `waktu_masuk`, `waktu_keluar`, `kehadiran`, `keterangan`) VALUES
-(1, 'KRY0001', '2018-06-01', '08:00:00', '16:00:00', 'Hadir', 'Tepat Waktu'),
-(2, 'KRY0001', '2018-06-04', '08:00:00', '16:00:00', 'Hadir', 'Tepat Waktu'),
-(3, 'KRY0001', '2018-06-05', '08:00:00', '16:00:00', 'Hadir', 'Tepat Waktu'),
-(4, 'KRY0001', '2018-06-06', '08:00:00', '16:00:00', 'Hadir', 'Tepat Waktu'),
-(5, 'KRY0001', '2018-06-07', '08:00:00', '16:00:00', 'Hadir', 'Tepat Waktu'),
-(6, 'KRY0001', '2018-06-08', '08:00:00', '16:00:00', 'Hadir', 'Tepat Waktu'),
-(7, 'KRY0001', '2018-06-11', '08:00:00', '16:00:00', 'Hadir', 'Tepat Waktu'),
-(8, 'KRY0001', '2018-06-12', '08:00:00', '16:00:00', 'Hadir', 'Tepat Waktu'),
-(9, 'KRY0001', '2018-06-13', '08:00:00', '16:00:00', 'Hadir', 'Tepat Waktu'),
-(10, 'KRY0001', '2018-06-14', '08:00:00', '16:00:00', 'Hadir', 'Tepat Waktu'),
-(11, 'KRY0001', '2018-06-15', '08:00:00', '16:00:00', 'Hadir', 'Tepat Waktu'),
-(12, 'KRY0001', '2018-06-18', '08:00:00', '16:00:00', 'Hadir', 'Tepat Waktu'),
-(13, 'KRY0001', '2018-06-19', '08:00:00', '16:00:00', 'Hadir', 'Tepat Waktu'),
-(14, 'KRY0001', '2018-06-20', '08:00:00', '16:00:00', 'Hadir', 'Tepat Waktu'),
-(15, 'KRY0001', '2018-06-21', '08:00:00', '16:00:00', 'Hadir', 'Tepat Waktu'),
-(16, 'KRY0001', '2018-06-22', '08:00:00', '16:00:00', 'Hadir', 'Tepat Waktu'),
-(17, 'KRY0001', '2018-06-25', '08:00:00', '16:00:00', 'Hadir', 'Tepat Waktu'),
-(18, 'KRY0001', '2018-06-26', '08:00:00', '16:00:00', 'Hadir', 'Tepat Waktu'),
-(19, 'KRY0001', '2018-06-27', '08:00:00', '16:00:00', 'Hadir', 'Tepat Waktu'),
-(20, 'KRY0001', '2018-06-28', '08:00:00', '16:00:00', 'Hadir', 'Tepat Waktu'),
-(21, 'KRY0001', '2018-06-29', '08:00:00', '16:00:00', 'Hadir', 'Tepat Waktu'),
-(30, 'adm0001', '2018-07-03', '14:47:31', '14:47:32', 'Hadir', 'Telat 407 Menit.'),
-(31, 'adm0001', '2018-07-04', '14:14:09', '14:14:11', 'Hadir', 'Telat 374 Menit.'),
-(32, 'KRY0001', '2018-07-11', '22:47:18', '22:48:58', 'Hadir', 'Telat 887 Menit.'),
-(33, 'adm0001', '2018-07-11', '23:26:09', '23:26:11', 'Hadir', 'Telat 926 Menit.'),
-(34, 'adm0001', '2018-07-12', '14:56:59', '14:57:02', 'Hadir', 'Telat 416 Menit.');
+(35, '01180701001', '2018-07-14', '21:42:21', '21:42:25', 'Hadir', 'Telat 822 Menit.'),
+(36, '02180101001', '2018-07-14', '21:46:59', NULL, 'Hadir', 'Telat 826 Menit.'),
+(37, '01180701001', '2018-07-16', '03:23:10', NULL, 'Hadir', 'Telat -277 Menit.');
 
 -- --------------------------------------------------------
 
@@ -86,15 +63,17 @@ CREATE TABLE `admin` (
   `password_admin` varchar(100) DEFAULT NULL,
   `jk_admin` enum('L','P') DEFAULT NULL,
   `status_kerja` enum('Aktif','Tidak Aktif') DEFAULT NULL,
-  `alamat_admin` text
+  `alamat_admin` text,
+  `foto_admin` varchar(150) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `admin`
 --
 
-INSERT INTO `admin` (`id_admin`, `nama_admin`, `email_admin`, `tanggal_lahir_admin`, `tempat_lahir_admin`, `agama_admin`, `password_admin`, `jk_admin`, `status_kerja`, `alamat_admin`) VALUES
-('adm0001', 'Vicko', 'mail@mail.com', '1995-01-01', 'Jakarta', 'Islam', 'admin', 'L', 'Aktif', 'Jakarta');
+INSERT INTO `admin` (`id_admin`, `nama_admin`, `email_admin`, `tanggal_lahir_admin`, `tempat_lahir_admin`, `agama_admin`, `password_admin`, `jk_admin`, `status_kerja`, `alamat_admin`, `foto_admin`) VALUES
+('0218010001', 'Vicko', 'mail@mail.com', '1995-01-01', 'Jakarta', 'Islam', 'admin', 'L', 'Aktif', 'Jakarta', NULL),
+('0218070001', 'Admin Vicko', 'vick@gmail.com', '1996-06-17', 'Jakarta', 'Islam', '1996-06-17', 'L', 'Tidak Aktif', 'Jakarta', NULL);
 
 -- --------------------------------------------------------
 
@@ -149,13 +128,13 @@ CREATE TABLE `karyawan` (
 --
 
 INSERT INTO `karyawan` (`id_karyawan`, `nama_karyawan`, `email_karyawan`, `tanggal_lahir_karyawan`, `tempat_lahir_karyawan`, `agama_karyawan`, `password_karyawan`, `jk_karyawan`, `id_jabatan`, `alamat_karyawan`, `foto_karyawan`) VALUES
-('KRY0001', 'Bambang A', 'bambang@mail.com', '1995-01-01', 'Jakarta', 'Islam', 'karyawan', 'L', 'JBT01', 'JKT', NULL),
-('KRY0002', 'Andi Satria', 'Andi@mail.com', '1995-01-02', 'Jakarta', 'Islam', 'kry02', 'L', 'JBT01', NULL, NULL),
-('KRY0003', 'Firman Sandi', 'Firman@mail.com', '1995-01-03', 'Jakarta', 'Islam', 'kry03', 'L', 'JBT02', NULL, NULL),
-('KRY0004', 'Liko Adnan', 'Liko@mail.com', '1995-01-04', 'Jakarta', 'Islam', 'kry04', 'L', 'JBT03', NULL, NULL),
-('KRY0005', 'Muhammad Fathan', 'Muhammad@mail.com', '1995-01-05', 'Jakarta', 'Islam', 'kry05', 'L', 'JBT04', NULL, NULL),
-('KRY0006', 'Zi Aulia', 'Zi@mail.com', '1995-01-06', 'Jakarta', 'Islam', 'kry06', 'P', 'JBT05', NULL, NULL),
-('KRY0007', 'Ichan', 'ichsan.clay@gmail.com', '1997-06-17', 'Jakarta', 'Islam', '1997-06-17', '', 'JBT01', 'Bekasi', '2pcs-set-Naruto-Uzumaki-Naruto-Hyuuga-Hinata-PVC-Action-Figures-Collectible-Model-Toys.jpg');
+('0118070001', 'Bambang A', 'bambang@mail.com', '1995-01-01', 'Jakarta', 'Islam', 'karyawan', 'L', 'JBT01', 'JKT', NULL),
+('0118070002', 'Andi Satria', 'Andi@mail.com', '1995-01-02', 'Jakarta', 'Islam', 'kry02', 'L', 'JBT01', NULL, NULL),
+('0118070003', 'Firman Sandi', 'Firman@mail.com', '1995-01-03', 'Jakarta', 'Islam', 'kry03', 'L', 'JBT02', NULL, NULL),
+('0118070004', 'Liko Adnan', 'Liko@mail.com', '1995-01-04', 'Jakarta', 'Islam', 'kry04', 'L', 'JBT03', NULL, NULL),
+('0118070005', 'Muhammad Fathan', 'Muhammad@mail.com', '1995-01-05', 'Jakarta', 'Islam', 'kry05', 'L', 'JBT04', NULL, NULL),
+('0118070006', 'Zi Aulia', 'Zi@mail.com', '1995-01-06', 'Jakarta', 'Islam', 'kry06', 'P', 'JBT05', NULL, NULL),
+('0118070007', 'Fitri', 'Fit@gmail.com', '1997-06-17', 'Jakarta', 'Islam', '1997-06-17', 'P', 'JBT01', 'Jakarta Selatan', '2pcs-set-Naruto-Uzumaki-Naruto-Hyuuga-Hinata-PVC-Action-Figures-Collectible-Model-Toys.jpg');
 
 -- --------------------------------------------------------
 
@@ -193,16 +172,17 @@ CREATE TABLE `pimpinan` (
   `agama_pimpinan` varchar(15) DEFAULT NULL,
   `password_pimpinan` varchar(100) DEFAULT NULL,
   `alamat_pimpinan` text,
-  `jk_pimpinan` enum('L','P') DEFAULT NULL
+  `jk_pimpinan` enum('L','P') DEFAULT NULL,
+  `foto_pimpinan` varchar(150) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `pimpinan`
 --
 
-INSERT INTO `pimpinan` (`id_pimpinan`, `nama_pimpinan`, `email_pimpinan`, `tanggal_lahir_pimpinan`, `tempat_lahir_pimpinan`, `agama_pimpinan`, `password_pimpinan`, `alamat_pimpinan`, `jk_pimpinan`) VALUES
-('PMP0001', 'Vicko Bambang', 'vb@mail.com', '1995-01-01', 'Jakarta', 'Islam', 'pimpinan', 'Jakarta', 'L'),
-('PMP0002', 'Safina Dewi', 'sd@mail.com', '1995-01-02', 'Jakarta', 'Islam', 'pmp02', 'Jakarta', 'P');
+INSERT INTO `pimpinan` (`id_pimpinan`, `nama_pimpinan`, `email_pimpinan`, `tanggal_lahir_pimpinan`, `tempat_lahir_pimpinan`, `agama_pimpinan`, `password_pimpinan`, `alamat_pimpinan`, `jk_pimpinan`, `foto_pimpinan`) VALUES
+('0318070001', 'Vicko Bambang', 'vb@mail.com', '1995-01-01', 'Jakarta', 'Islam', 'pimpinan', 'Jakarta', 'L', NULL),
+('0318070002', 'Safina Dewi', 'sd@mail.com', '1995-01-02', 'Jakarta', 'Islam', 'pmp02', 'Jakarta', 'P', NULL);
 
 -- --------------------------------------------------------
 
@@ -232,18 +212,13 @@ CREATE TABLE `slip_gaji` (
 --
 
 INSERT INTO `slip_gaji` (`id`, `id_karyawan`, `periode`, `id_jabatan`, `gaji_pokok`, `tunjangan_bpjs`, `tunjangan_konsumsi`, `tunjangan_transport`, `tunjangan_keluarga`, `pajak`, `potongan_gaji`, `gaji_diterima`, `id_admin`, `keterangan`) VALUES
-(7, 'KRY0001', '2018-07', 'JBT01', 9000000, 350000, 600000, 0, 500000, 10, 1000, 9549000, '0330036805', 'Disetujui'),
-(8, 'KRY0002', '2018-07', 'JBT01', 9000000, 350000, 600000, 0, 0, 10, 0, 9050000, '0330036805', 'pending'),
-(9, 'KRY0003', '2018-07', 'JBT02', 8000000, 350000, 600000, 500000, 0, 10, 0, 8650000, '0330036805', 'pending'),
-(10, 'KRY0004', '2018-07', 'JBT03', 7000000, 350000, 600000, 500000, 500000, 10, 0, 8250000, '0330036805', 'pending'),
-(11, 'KRY0005', '2018-07', 'JBT04', 6000000, 0, 0, 0, 0, 10, 0, 5400000, '0330036805', 'pending'),
-(12, 'KRY0006', '2018-07', 'JBT05', 5150000, 350000, 600000, 0, 500000, 10, 0, 6085000, '0330036805', 'pending'),
-(13, 'KRY0001', '2018-06', 'JBT01', 9000000, 350000, 600000, 0, 0, 10, 1000, 9049000, 'adm0001', 'Disetujui'),
-(14, 'KRY0002', '2018-06', 'JBT01', 9000000, 350000, 600000, 0, 0, 10, 0, 9050000, 'adm0001', 'pending'),
-(15, 'KRY0003', '2018-06', 'JBT02', 8000000, 0, 0, 0, 0, 10, 0, 7200000, 'adm0001', 'pending'),
-(16, 'KRY0004', '2018-06', 'JBT03', 7000000, 0, 0, 0, 0, 10, 0, 6300000, 'adm0001', 'pending'),
-(17, 'KRY0005', '2018-06', 'JBT04', 6000000, 0, 0, 0, 0, 10, 0, 5400000, 'adm0001', 'pending'),
-(18, 'KRY0006', '2018-06', 'JBT05', 5150000, 0, 0, 0, 0, 10, 0, 4635000, 'adm0001', 'pending');
+(26, '0118070001', '2018-07', 'JBT01', 9000000, 350000, 0, 0, 0, 10, 100000, 7650000, '0218010001', 'pending'),
+(27, '0118070002', '2018-07', 'JBT01', 9000000, 0, 600000, 0, 0, 10, 0, 8700000, '0218010001', 'pending'),
+(28, '0118070003', '2018-07', 'JBT02', 8000000, 0, 600000, 0, 0, 10, 0, 7800000, '0218010001', 'pending'),
+(29, '0118070004', '2018-07', 'JBT03', 7000000, 0, 600000, 500000, 0, 10, 0, 7400000, '0218010001', 'pending'),
+(30, '0118070005', '2018-07', 'JBT04', 6000000, 350000, 0, 500000, 0, 10, 0, 5550000, '0218010001', 'pending'),
+(31, '0118070006', '2018-07', 'JBT05', 5150000, 350000, 0, 500000, 500000, 10, 0, 5285000, '0218010001', 'pending'),
+(32, '0118070007', '2018-07', 'JBT01', 9000000, 350000, 600000, 500000, 500000, 10, 0, 9350000, '0218010001', 'pending');
 
 --
 -- Indexes for dumped tables
@@ -299,7 +274,7 @@ ALTER TABLE `slip_gaji`
 -- AUTO_INCREMENT for table `absensi`
 --
 ALTER TABLE `absensi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 --
 -- AUTO_INCREMENT for table `keluhan`
 --
@@ -309,7 +284,7 @@ ALTER TABLE `keluhan`
 -- AUTO_INCREMENT for table `slip_gaji`
 --
 ALTER TABLE `slip_gaji`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;COMMIT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

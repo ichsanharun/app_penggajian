@@ -3,16 +3,16 @@
 
 $aksi = $_GET['aksi'];
 $hak = $_SESSION['hak'];
-$year = date("Ymd");
-$code_year = substr($year, 2, 6);
+$year = date("Ym");
+$code_year = substr($year, 2, 4);
 $char = "02".$code_year;
 $query = "SELECT max(id_admin) as maxKode FROM admin WHERE id_admin like '%$char%'";
 $hasil = $mysqli->query($query);
 $data  = mysqli_fetch_array($hasil);
 $kodeTrans = $data['maxKode'];
-$noUrut = (int) substr($kodeTrans, 8, 3);
+$noUrut = (int) substr($kodeTrans, 6, 4);
 $noUrut++;
-$id_kr = $char . sprintf("%03s", $noUrut);
+$id_kr = $char . sprintf("%04s", $noUrut);
 
 
 if ($aksi == 'detail') {
@@ -70,6 +70,12 @@ if ($aksi == 'detail') {
                <td width="5%">:</td>
                <td><?php echo $status_kerja; ?></td>
            </tr>
+
+           <tr>
+               <th width="19%">Foto</th>
+               <td width="5%">:</td>
+               <td><img src="img/admin/<?php echo $foto_admin; ?>" width="30%"></td>
+           </tr>
            <?php
          }
           ?>
@@ -79,7 +85,7 @@ if ($aksi == 'detail') {
 }
 elseif ($aksi == 'edit') {
   ?>
-    <form action="konten/proses/d_admin_edit_aksi.php" method="post">
+    <form action="konten/proses/d_admin_edit_aksi.php" method="post" enctype="multipart/form-data">
       <input type="hidden" name="tipe_edit" value="edit">
       <table id="tbl">
         <?php
@@ -146,6 +152,12 @@ elseif ($aksi == 'edit') {
                     </td>
                </tr>
 
+               <tr>
+                   <th width="19%">Foto Admin</th>
+                   <td width="5%">:</td>
+                   <td><input type="file" name="foto_admin"></td>
+               </tr>
+
                <?php
              }
               ?>
@@ -158,7 +170,7 @@ elseif ($aksi == 'edit') {
 }
 elseif ($aksi == 'tambah') {
   ?>
-    <form action="konten/proses/d_admin_edit_aksi.php" method="post">
+    <form action="konten/proses/d_admin_edit_aksi.php" method="post" enctype="multipart/form-data">
       <input type="hidden" name="tipe_edit" value="tambah">
       <table id="tbl">
 
@@ -220,6 +232,12 @@ elseif ($aksi == 'tambah') {
                        <option value="P">Perempuan</option>
                      </select>
                    </td>
+               </tr>
+
+               <tr>
+                   <th width="19%">Foto Admin</th>
+                   <td width="5%">:</td>
+                   <td><input type="file" name="foto_admin"></td>
                </tr>
 
        </table>

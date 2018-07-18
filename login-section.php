@@ -4,6 +4,7 @@ include ('koneksi/koneksi.php');
 
 $id = $_POST['userid'];
 $password = $_POST['password'];
+if (!empty($id) AND !empty($password)) {
 
   $query = mysqli_query($mysqli, "SELECT * FROM karyawan WHERE id_karyawan = '$id' AND password_karyawan='$password'");
 
@@ -24,6 +25,14 @@ else{
     $_SESSION['hak'] = "karyawan";
     header('location:karyawan/index.php');
 }
-
+}
+else {
+  ?>
+  <script>
+  alert('Data tidak boleh kosong!');
+  window.location.href="index.php?p=login";
+  </script>
+  <?php
+}
 
 ?>

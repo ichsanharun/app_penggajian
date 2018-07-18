@@ -6,6 +6,7 @@ $queryslip_karyawan = "SELECT id_karyawan,nama_karyawan,nama_jabatan FROM karyaw
 $sqlslip_karyawan = mysqli_query($mysqli,$queryslip_karyawan);
 
 
+
 $query_pimpinan = "SELECT * FROM pimpinan";
 $sql_pimpinan = mysqli_query($mysqli,$query_pimpinan);
 
@@ -13,6 +14,10 @@ $sql_pimpinan = mysqli_query($mysqli,$query_pimpinan);
 
 $query_admin = "SELECT * FROM admin";
 $sql_admin = mysqli_query($mysqli,$query_admin);
+if (isset($_SESSION['id'])) {
+  $query_admin_id = "SELECT * FROM admin WHERE id_admin = '$_SESSION[id]'";
+  $sql_admin_id = mysqli_query($mysqli,$query_admin_id);
+}
 
 $query_jabatan = "SELECT * FROM jabatan";
 $sql_jabatan = mysqli_query($mysqli,$query_jabatan);

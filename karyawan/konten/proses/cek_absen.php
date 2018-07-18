@@ -23,47 +23,67 @@ $sql_absensi = mysqli_query($mysqli,$queryabsen);
 
 if (!empty($_POST['absensi'])) {
 	$absensi = $_POST['absensi'];
-	if (mysqli_num_rows($sql_absensi) > 0) {
-		$queryupdate_absensi = "UPDATE absensi SET
-				kehadiran = 'Hadir'
-				WHERE id_karyawan = '$id' AND tanggal_absensi = '$tanggal_absensi';
-			";
+	if ($sj < 7) {
+		?>
+		<script>
+		alert('Belum waktunya melakukan absensi, silahkan coba lagi setelah pukul 07.00!');
+		window.location.href="../../index.php?p=d_absensi";
+		</script>
+		<?php
 	}
-	else{
-		$queryupdate_absensi = "INSERT INTO absensi
-			(
-				id_karyawan,
-				tanggal_absensi,
-				waktu_masuk,
-				kehadiran,
-				keterangan
-			)
-			VALUES
-			(
-				'$id',
-				'$tanggal_absensi',
-				'$waktu_absensi',
-				'Hadir',
-				'$keterangan'
-			)
-			";
+	else {
+		if (mysqli_num_rows($sql_absensi) > 0) {
+			$queryupdate_absensi = "UPDATE absensi SET
+					kehadiran = 'Hadir'
+					WHERE id_karyawan = '$id' AND tanggal_absensi = '$tanggal_absensi';
+				";
+		}
+		else{
+			$queryupdate_absensi = "INSERT INTO absensi
+				(
+					id_karyawan,
+					tanggal_absensi,
+					waktu_masuk,
+					kehadiran,
+					keterangan
+				)
+				VALUES
+				(
+					'$id',
+					'$tanggal_absensi',
+					'$waktu_absensi',
+					'Hadir',
+					'$keterangan'
+				)
+				";
+		}
 	}
 }
 else {
 	$keluar = $_POST['keluar'];
-	if (mysqli_num_rows($sql_absensi) > 0) {
-		$queryupdate_absensi = "UPDATE absensi SET
-				waktu_keluar = '$waktu_absensi'
-				WHERE id_karyawan = '$id' AND tanggal_absensi = '$tanggal_absensi';
-			";
-	}
-	else{
+	if ($sj < 16) {
 		?>
-			<script>
-				alert('Silahkan melakukan absen masuk terlebih dahulu!');
-				window.location.href="../../index.php?p=d_absensi";
-			</script>
+		<script>
+		alert('Belum waktunya melakukan absensi, silahkan coba lagi setelah pukul 16.00!');
+		window.location.href="../../index.php?p=d_absensi";
+		</script>
 		<?php
+	}
+	else {
+		if (mysqli_num_rows($sql_absensi) > 0) {
+			$queryupdate_absensi = "UPDATE absensi SET
+					waktu_keluar = '$waktu_absensi'
+					WHERE id_karyawan = '$id' AND tanggal_absensi = '$tanggal_absensi';
+				";
+		}
+		else{
+			?>
+				<script>
+					alert('Silahkan melakukan absen masuk terlebih dahulu!');
+					window.location.href="../../index.php?p=d_absensi";
+				</script>
+			<?php
+		}
 	}
 }
 

@@ -127,7 +127,7 @@ $absensi = mysqli_fetch_array($sql_absensi);
                 $j = $i;
               }
               $restgl = $tgl."-".$j;
-              $querykehadiran = "SELECT * FROM `absensi` INNER JOIN `karyawan` ON `absensi`.`id_karyawan` = `karyawan`.`id_karyawan` WHERE `absensi`.`tanggal_absensi` = '$restgl'";
+              $querykehadiran = "SELECT * FROM `absensi` INNER JOIN `karyawan` ON `absensi`.`id_karyawan` = `karyawan`.`id_karyawan` WHERE `absensi`.`tanggal_absensi` = '$restgl' AND `absensi`.`id_karyawan` = '$_SESSION[id]'";
               $sqlhadir=mysqli_query($mysqli,$querykehadiran);
               $datahadir=mysqli_fetch_array($sqlhadir);
               if (empty($datahadir['kehadiran'])) {

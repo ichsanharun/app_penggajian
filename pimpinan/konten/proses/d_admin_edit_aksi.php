@@ -22,6 +22,16 @@ if (
   !empty($jk_admin) AND
   !empty($status_kerja)
 ) {
+  $ekstensi_diperbolehkan	= array('png','jpg');
+  $nama = $_FILES['foto_karyawan']['name'];
+  $x = explode('.', $nama);
+  $ekstensi = strtolower(end($x));
+  $ukuran	= $_FILES['foto_karyawan']['size'];
+  $file_tmp = $_FILES['foto_karyawan']['tmp_name'];
+  if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
+    if($ukuran < 1044070){
+      move_uploaded_file($file_tmp, '../../img/karyawan/'.$nama);
+
     if ($tipe_edit == 'edit') {
 
       $queryupdate_admin = "UPDATE admin SET
@@ -53,7 +63,8 @@ if (
         alamat_admin,
         password_admin,
         jk_admin,
-        status_kerja
+        status_kerja,
+        foto_admin
       )
       VALUES
       (
@@ -66,7 +77,8 @@ if (
         '$alamat_admin',
         '$tanggal_lahir_admin',
         '$jk_admin',
-        '$status_kerja'
+        '$status_kerja',
+        '$nama'
       )
       ";
       $sqlinsert_admin = mysqli_query($mysqli,$queryinsert_admin);
@@ -77,6 +89,24 @@ if (
         </script>
       <?php
     }
+  }
+  else{
+    ?>
+      <script>
+        alert('UKURAN FILE TERLALU BESAR!');
+        window.location.href="../../index.php?p=d_karyawan";
+      </script>
+    <?php
+  }
+}
+else{
+  ?>
+    <script>
+      alert('EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN!');
+      window.location.href="../../index.php?p=d_karyawan";
+    </script>
+  <?php
+}
 
 }
 else {

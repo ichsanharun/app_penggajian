@@ -40,15 +40,15 @@ else {
 <table id="tbl" width="100%">
   <tr>
     <th rowspan="2">No.</th>
-    <th colspan="2">ID Karyawan</th>
+    <th rowspan="2">Nama Karyawan</th>
     <th rowspan="2">Jabatan</th>
     <th rowspan="2">Gaji Pokok</th>
     <th colspan="4">Tunjangan</th>
+    <th rowspan="2">Gaji Diterima</th>
     <th rowspan="2">Opsi</th>
   </tr>
   <tr>
-    <th>ID</th>
-    <th>Nama Karyawan</th>
+
     <th>BPJS</th>
     <th>Konsumsi</th>
     <th>Transport</th>
@@ -62,7 +62,7 @@ else {
   ?>
   <tr text-align="center">
     <td><?php echo $no; ?></td>
-    <td><?php echo $id_karyawan; ?></td>
+
     <td><?php echo $nama_karyawan; ?></td>
     <td><?php echo $id_jabatan; ?></td>
     <td><?php echo $gaji_pokok; ?></td>
@@ -70,6 +70,7 @@ else {
     <td><?php echo $tunjangan_konsumsi; ?></td>
     <td><?php echo $tunjangan_transport; ?></td>
     <td><?php echo $tunjangan_keluarga; ?></td>
+    <td><?php echo $gaji_diterima; ?></td>
     <td>
       <?php if ($keterangan == 'Disetujui') {
         echo "Telah Disetujui";

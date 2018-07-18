@@ -8,6 +8,7 @@ if ($bulan < 10) {
 }else {
   $tgl = $tahun.'-'.$bulan;
 }
+
 $day = date('D', strtotime($tanggal));
         $dayList = array(
             'Sun' => 'Minggu',
@@ -19,6 +20,7 @@ $day = date('D', strtotime($tanggal));
             'Sat' => 'Sabtu'
         );
         $hari= $dayList[$day];
+
 $tahun = date("Y");
 $bulan = date("m");
 $th = (int)$tahun;
@@ -44,19 +46,23 @@ else{
   $penanggalan['02'] = '29';
 }
 $jumlahhari = $penanggalan[$bulan];
+
 ?>
+
   <br>
   <table id="tbl" style="font-size:0.7em !important;">
+
       <tr>
           <th rowspan="2">Nama</th>
           <th colspan="<?php echo $jumlahhari; ?>">Kehadiran Bulan Ini</th>
       </tr>
       <tr>
         <?php for ($i=1; $i <= $jumlahhari; $i++) {
+          //echo "<th><a href='?page=absen_ubah&d=$i&m=$bulan&y=$tahun'>".$i."</a></th>";
           echo "<th>".$i."</th>";
-        }
-        ?>
+        } ?>
       </tr>
+
       <?php
       $no = 0;
       foreach ($sql_karyawan as $key) {
@@ -65,7 +71,7 @@ $jumlahhari = $penanggalan[$bulan];
       ?>
 
       <tr>
-        <th><?php echo $nama_karyawan; ?></th>
+        <th><a href="?p=d_administrasi&k=a_absensi_tools&id=<?php echo $id_karyawan; ?>&periode=<?php echo date("Y-m"); ?>" ><?php echo $nama_karyawan; ?></a></th>
           <?php $tanggal1 = date("Y-m-d"); ?>
           <?php for ($i=1; $i <= $jumlahhari; $i++) {
             if ($i <10 ) {
