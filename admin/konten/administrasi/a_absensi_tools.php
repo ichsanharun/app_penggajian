@@ -3,7 +3,7 @@
 
 $id = $_GET['id'];
 $periode = $_GET['periode'];
-$query_dabsensi = "SELECT * FROM absensi WHERE id_karyawan = '$id' AND tanggal_absensi = '$periode'";
+$query_dabsensi = "SELECT * FROM absensi WHERE id_karyawan = '$id' AND tanggal_absensi like '%$periode%'";
 $sql_dabsensi = mysqli_query($mysqli,$query_dabsensi);
   ?>
   <a href="index.php?p=d_administrasi&k=a_absensi" class="btn btn-default"><i class="fa fa-fw fa-arrow-circle-left" style="color:#000"></i>Kembali</a>

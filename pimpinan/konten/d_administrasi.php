@@ -5,6 +5,9 @@
     <li><a href="?p=d_administrasi&k=a_keluhan_list"><i class="fa fa-fw fa-list"></i> Data Keluhan</a></li>
     <li><a href="?p=d_administrasi&k=a_absensi"><i class="fa fa-fw fa-user"></i> Data Absensi</a></li>
     <li><a href="?p=d_administrasi&k=a_ubah_profil"><i class="fa fa-fw fa-user"></i> Ubah Profil</a></li>
+    <li><a href="?p=d_administrasi&k=cetaktrans"><i class="fa fa-fw fa-print"></i> Lap. Rekap Absen</a></li>
+    <li><a href="konten/administrasi/cetak_tr.php?data=karyawan"><i class="fa fa-fw fa-print"></i> Lap. Karyawan</a></li>
+    <li><a href="?p=d_administrasi&k=cetakgaji"><i class="fa fa-fw fa-print"></i> Lap. Gaji</a></li>
   </ul>
   <div class="adm-content">
     <?php

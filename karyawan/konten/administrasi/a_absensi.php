@@ -46,57 +46,37 @@ else{
 }
 $jumlahhari = $penanggalan[$bulan];
 
-?>
-<table id="tbl">
-
-    <tr>
-        <th colspan="<?php echo $jumlahhari; ?>">Kehadiran Bulan Ini</th>
-    </tr>
-    <tr>
-      <?php for ($i=1; $i <= $jumlahhari; $i++) {
-        //echo "<th><a href='?page=absen_ubah&d=$i&m=$bulan&y=$tahun'>".$i."</a></th>";
-        echo "<td style='font-size: 0.8em !important;' >".$i."</td>";
-      } ?>
-    </tr>
-
-
-
-
-    <tr>
-        <?php $tanggal1 = date("Y-m-d"); ?>
-        <?php for ($i=1; $i <= $jumlahhari; $i++) {
-          if ($i <10 ) {
-            $j = '0'.$i;
-          }
-          else {
-            $j = $i;
-          }
-          $restgl = $tgl."-".$j;
-          $querykehadiran = "SELECT * FROM `absensi` INNER JOIN `karyawan` ON `absensi`.`id_karyawan` = `absensi`.`id_karyawan` WHERE `absensi`.`tanggal_absensi` = '$restgl' AND `absensi`.`id_karyawan` = '$_SESSION[id]'";
-          $sqlhadir=mysqli_query($mysqli,$querykehadiran);
-          $datahadir=mysqli_fetch_array($sqlhadir);
-          if (empty($datahadir['kehadiran'])) {
-            $keterangan = '-';
-          }
-          elseif (!empty($datahadir['kehadiran'])) {
-            if ($datahadir['kehadiran'] == 'Hadir') {
-              $keterangan = "V";
-            }
-            else {
-              $keterangan = "S";
-            }
-          }
-          $tanggalan = date('D', strtotime($restgl));
-          if ($tanggalan == 'Sun' OR $tanggalan == 'Sat') {
-            echo "<td width=3.33334% bgcolor='red' style='font-size: 0.8em !important;'>".$keterangan."</td>";
-          }
-          else {
-            echo "<td width=3.33334% style='font-size: 0.8em !important;'>".$keterangan."</td>";
-          }
-
-        } ?>
-   </tr>
-
-
-
-</table>
+$periode = date("Y-m");
+  ?>
+  <!--a href="index.php?p=d_administrasi&k=a_absensi" class="btn btn-default"><i class="fa fa-fw fa-arrow-circle-left" style="color:#000"></i>Kembali</a-->
+      <table id="tbl">
+        <tr>
+            <th>Tanggal Absensi</th>
+            <th>Kehadiran</th>
+            <th>Waktu Masuk</th>
+            <th>Waktu Keluar</th>
+            <th>Keterangan</th>
+        </tr>
+        <?php
+        for ($i=1; $i <= $jumlahhari; $i++) {
+          // code...
+        if ($i < 10) {
+          $j = date("Y-m")."-0".$i;
+        }
+        else {
+          $j = date("Y-m")."-".$i;
+        }
+        $query_dabsensi = "SELECT * FROM absensi WHERE id_karyawan = '$_SESSION[id]' AND tanggal_absensi = '$j'";
+        $sql_dabsensi = mysqli_query($mysqli,$query_dabsensi);
+        $abs = $sql_dabsensi->fetch_assoc();
+        //extract($abs);
+        ?>
+        <tr>
+          <th><?php echo date("d M Y", strtotime($j)); ?></th>
+          <th><?php echo $abs['kehadiran']; ?></th>
+          <th><?php echo $abs['waktu_masuk']; ?> </th>
+          <th><?php echo $abs['waktu_keluar']; ?> </th>
+          <th><?php echo $abs['keterangan']; ?></th>
+        </tr>
+        <?php } ?>
+      </table>

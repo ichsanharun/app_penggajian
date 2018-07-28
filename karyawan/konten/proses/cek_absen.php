@@ -23,7 +23,7 @@ $sql_absensi = mysqli_query($mysqli,$queryabsen);
 
 if (!empty($_POST['absensi'])) {
 	$absensi = $_POST['absensi'];
-	if ($sj < 7) {
+	if ($js < 7) {
 		?>
 		<script>
 		alert('Belum waktunya melakukan absensi, silahkan coba lagi setelah pukul 07.00!');
@@ -61,7 +61,8 @@ if (!empty($_POST['absensi'])) {
 }
 else {
 	$keluar = $_POST['keluar'];
-	if ($sj < 16) {
+	if ($js < 16) {
+		echo $sj;
 		?>
 		<script>
 		alert('Belum waktunya melakukan absensi, silahkan coba lagi setelah pukul 16.00!');
